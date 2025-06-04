@@ -8,19 +8,6 @@ Kotlin
 -Jetpack Compose -> multiplataforma
   - Kotlin faz a lógica e o layout (de forma declarativa, nao desenho)
 
-
-** Primeiro Projeto **
-- Criar novo projeto no IntelliJ
-- New Project -> Android (procura o plugin no marketplace)
-- Install SDK
-- Selecionar: Empty Activity
-- Adicionar dispositivo virtual
-- Project Structure -> Selecionar SDK Android
-- Settings -> Build -> Build Tools -> Gradle
-	- Habilita "Download external annotation for dependencies"
-	- Gradle JVM = Project SDK
-
-
 - Tipos de variáveis (exemplo):
 	- val => não muda o valor
 	- var => muda o valor
@@ -32,13 +19,27 @@ Kotlin
 - "$" => interpolation
 - Maps: armazenam itens como pares chave-valor
 	- mapa somente leitura: mapOf(); mapOf("apple" to 100, ...)
-	MutableMap<String, Int> => pode mudar de valor
+	  MutableMap<String, Int> => pode mudar de valor
 - @Composable => cria interface
-- @Preview => serve como ferramenta de teste
-
+- @Preview => serve como ferramenta de teste (apenas no Android Studio)
 
 ---
-- Criar FichaPessoal.kt
+
+**Primeiro Projeto**
+- Criar novo projeto no IntelliJ
+- New Project -> Android (procura o plugin no marketplace)
+- Install SDK
+- Selecionar: Empty Activity
+- Adicionar dispositivo virtual
+- Project Structure -> Selecionar SDK Android
+- Settings -> Build -> Build Tools -> Gradle
+	- Habilita "Download external annotation for dependencies"
+	- Gradle JVM = Project SDK
+- Se der erro de ícone no run, adicionar via Image Asset Studio;
+- Habilitar refresh:  Editor -> Compose Live Edit -> "Push Edits Manually on Save (Ctrl+S)"
+
+1) Criar FichaPessoal.kt
+- Local: Test\app\src\main\java\com\example\test
 ```bash
 package com.example.test.views
 
@@ -71,4 +72,9 @@ fun PreviewFicha() {
     FichaPessoal("Maria", 28, listOf("Leitura", "Corrida", "Cinema"))
 }
 ```
+- Para atualizar no virtual device: run app (setinha dando volta)
 
+2) Criar pastas dentro de "com.example.test"
+- models, services, views
+- Move o FichaPessoal.kt pra dentro da pasta 'views'
+- Adiciona fun FichaPessoal dentro do Greetins, no MainActivity.kt
