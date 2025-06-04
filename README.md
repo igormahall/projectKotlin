@@ -154,3 +154,13 @@ fun PessoaCard(pessoa: Pessoa) {
     }
 }
 ```
+---
+# Aula 04/06
+## Coleções e Tratamento de Dados - Jetpack Compose
+### List, filter, map, sumOf
+- listOf -> cria a lista de itens
+- filter -> filtra elementos com base em uma condição
+```kotlin
+val numeros = listOf(1,2,3,4,5)
+val pares = numeros.filter{ it % 2 == 0 }//[2,4]
+```
