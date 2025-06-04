@@ -40,6 +40,10 @@ fun SaudacaoDaPessoa(pessoa: Pessoa) {
 	Text(pessoa.saudacao())
 }
 ```
+- comentário:
+```kotlin
+/* ... */
+```
 
 - **Funções Lambda (->)**
   - funções que podem ser tratadas como valores, atribuídas a variáveis e passadas como parâmetros
@@ -163,4 +167,66 @@ fun PessoaCard(pessoa: Pessoa) {
 ```kotlin
 val numeros = listOf(1,2,3,4,5)
 val pares = numeros.filter{ it % 2 == 0 }//[2,4]
+```
+- map -> transforma cada item
+```kotlin
+val numeros = listOf(1,2,3,4,5)
+val dobro = numeros.map { it * 2} // [2, 4, 6, 8, 10]
+```
+- sortedBy -> ordena com base em algo (nomes.sortedBy {it});
+- sumOf -> soma com base em uma propriedade (produtos.sumOf {it.preco});
+
+### Data class - simples e poderosa
+- toString() -> representação em texto
+- equals()
+- copy()
+```kotlin
+data class Produto(val nome: String, val preço: Double)
+val p1 = Produto("Caneta", 2.0)
+val p2 = p1.copy(preco = 2.5)
+println(pi == p2) //false
+```
+### Lazy column: vai carregando à medida que for necessário
+- items: pertence ao LazyColumn
+- componentes: Text(), Button(), Image()
+- remember: lembrar e salvar o texto pra depois
+```kotlin
+fun ExemploCampoTexto() {
+    var texto by remember { mutableStateOf("") }
+}
+```
+- Card: agrupa conteúdo relacionado
+- Row: horizontal | Column: vertical
+- LazyRow/LazyColumn
+- Scaffold: estrutura básica de telas:
+  - TopAppBar: barra do topo
+  - BottomNavigation: barra da parte de baixo
+  - FloatingActionButton
+- Snackbar: notificação transitória que aparece na parte inferior da tela
+---
+## De volta ao projeto
+
+1) Criar o tipo Produto (data class Produto)
+   - Criar ClassProduto.kt em 'models'
+```kotlin
+data class Produto(
+val nome: String,
+val preco: Double,
+val emPromocao: Boolean
+)
+```
+2) Criar ListadeProdutos.kt dentro da pasta 'views'
+```kotlin
+fun ListaProdutos(produtos: List<Produto>) {
+    Column(modifier = Modifier.padding(32.dp)) {
+        Text("Produtos em Promoção:", style = MaterialTheme.typography.titleMedium)
+        produtos.filter { it.emPromocao }.forEach {
+            Text("- ${it.nome} por R$%.2f".format(it.preco))
+        }
+    }
+}
+```
+3) MainActivity.kt
+```kotlin
+
 ```

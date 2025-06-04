@@ -12,8 +12,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.test.models.Pessoa
+import com.example.test.models.Produto
 import com.example.test.ui.theme.TestTheme
 import com.example.test.views.FichaPessoal
+import com.example.test.views.ListaProdutos
 import com.example.test.views.PessoaCard
 
 class MainActivity : ComponentActivity() {
@@ -35,5 +37,15 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
-    PessoaCard(Pessoa("Igor", 36))
+    val produtos = listOf(
+        Produto("Arroz", 8.0, false),
+        Produto("Feijão", 10.5, true),
+        Produto("Café", 15.1, true),
+        Produto("Leite", 9.99, true),
+        Produto("Azeite", 89.99, false),
+        Produto("Queijo", 12.87, false),
+        Produto("Batata Escovada", 5.99, true)
+    )
+
+    ListaProdutos(produtos)
 }
