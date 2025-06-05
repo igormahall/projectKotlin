@@ -17,6 +17,7 @@ import com.example.test.ui.theme.TestTheme
 import com.example.test.views.FichaPessoal
 import com.example.test.views.ListaProdutos
 import com.example.test.views.PessoaCard
+import com.google.gson.Gson
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,15 +38,9 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
-    val produtos = listOf(
-        Produto("Arroz", 8.0, false),
-        Produto("Feijão", 10.5, true),
-        Produto("Café", 15.1, true),
-        Produto("Leite", 9.99, true),
-        Produto("Azeite", 89.99, false),
-        Produto("Queijo", 12.87, false),
-        Produto("Batata Escovada", 5.99, true)
-    )
+//    val testeJsonProduto: String = """{"nome":"MrMusculo","preco":"19.98","emPromocao":true}"""
+//    val gson = Gson()
+//    val objetoFinal = gson.fromJson(testeJsonProduto, Produto::class.java)
 
-    ListaProdutos(produtos)
+    Text("${ com.example.test.views.objetoFinal.nome } - ${ com.example.test.views.objetoFinal.preco } - ${ com.example.test.views.objetoFinal.emPromocao }")
 }

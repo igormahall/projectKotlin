@@ -250,3 +250,38 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     ListaProdutos(produtos)
 }
 ```
+
+# Aula 05/06
+Requisições simuladas e Manipulação de JSON
+(ainda não vamos conectar com a api...só pegar o json)
+```kotlin
+val testeJsonProduto: String = """{"nome":"MrMusculo","preco":"19.98","emPromocao":true}"""
+```
+- Gson: faz a mudança entre Kotlin Object e JSON
+- ir em 'app/build.gradle.kts' e adicionar no dependencies: 
+```bash
+implementation("com.google.code.gson:gson:2.10.1")
+```
+- Depois disso, precisa dar build -> sync gradle project (pode clicar com o direito no martelo > restart)
+- Adicionar no models -> ClassProduto
+```kotlin
+val json = """
+    {"chave1":"valor1",
+    "chave2":"valor2",
+    "chave3":"valor3",
+    "chave4":"valor4"
+    }
+    """
+    .trimIndent()
+```
+- Adicionar no views -> ListaProdutos
+```kotlin
+val testeJsonProduto: String = """{"nome":"MrMusculo","preco":"19.98","emPromocao":true}"""
+val gson = Gson()
+val objetoFinal = gson.fromJson(testeJsonProduto, Produto::class.java)
+```
+
+- Adicionar no MainAcitivity, dentro de greetings
+```kotlin
+Text("${ com.example.test.views.objetoFinal.nome } - ${ com.example.test.views.objetoFinal.preco } - ${ com.example.test.views.objetoFinal.emPromocao }")
+```
