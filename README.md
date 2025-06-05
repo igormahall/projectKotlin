@@ -223,10 +223,30 @@ fun ListaProdutos(produtos: List<Produto>) {
         produtos.filter { it.emPromocao }.forEach {
             Text("- ${it.nome} por R$%.2f".format(it.preco))
         }
+        Spacer(modifier = Modifier.height(10.dp))
+        val total = produtos.sumOf { it.preco }
+        val media = produtos.filter { it.emPromocao }.map { it.preco }.average()
+        val maisCaro = produtos.filter { it.emPromocao }.maxByOrNull { it.preco }
+
+        Text("Valor Total: R$%.2f".format(total), fontWeight = FontWeight.Bold)
+        Text("Valor da Média: R$%.2f".format(media))
+        Text("Produto mais caro: ${maisCaro?.nome}, ${maisCaro?.preco}")
     }
 }
 ```
 3) MainActivity.kt
 ```kotlin
+fun Greeting(name: String, modifier: Modifier = Modifier) {
+    val produtos = listOf(
+        Produto("Arroz", 8.0, false),
+        Produto("Feijão", 10.5, true),
+        Produto("Café", 15.1, true),
+        Produto("Leite", 9.99, true),
+        Produto("Azeite", 89.99, false),
+        Produto("Queijo", 12.87, false),
+        Produto("Batata Escovada", 5.99, true)
+    )
 
+    ListaProdutos(produtos)
+}
 ```
