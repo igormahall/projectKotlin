@@ -263,3 +263,6 @@ Text("${ com.example.test.views.objetoFinal.nome } - ${ com.example.test.views.o
 3) atualizar Greetings na MainActivity
 
 - Caminho: API -> JSON -> SERVICE (<->MODEL) -> VIEWS -> MainActivity
+---
+
+# Aula 06/06
