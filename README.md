@@ -180,21 +180,12 @@ val dobro = numeros.map { it * 2} // [2, 4, 6, 8, 10]
 - toString() -> representação em texto
 - equals()
 - copy()
-```kotlin
-data class Produto(val nome: String, val preço: Double)
-val p1 = Produto("Caneta", 2.0)
-val p2 = p1.copy(preco = 2.5)
-println(pi == p2) //false
-```
+
 ### Lazy column: vai carregando à medida que for necessário
 - items: pertence ao LazyColumn
 - componentes: Text(), Button(), Image()
 - remember: lembrar e salvar o texto pra depois
-```kotlin
-fun ExemploCampoTexto() {
-    var texto by remember { mutableStateOf("") }
-}
-```
+
 - Card: agrupa conteúdo relacionado
 - Row: horizontal | Column: vertical
 - LazyRow/LazyColumn
@@ -216,39 +207,19 @@ val emPromocao: Boolean
 )
 ```
 2) Criar ListadeProdutos.kt dentro da pasta 'views'
-```kotlin
-fun ListaProdutos(produtos: List<Produto>) {
-    Column(modifier = Modifier.padding(32.dp)) {
-        Text("Produtos em Promoção:", style = MaterialTheme.typography.titleMedium)
-        produtos.filter { it.emPromocao }.forEach {
-            Text("- ${it.nome} por R$%.2f".format(it.preco))
-        }
-        Spacer(modifier = Modifier.height(10.dp))
-        val total = produtos.sumOf { it.preco }
-        val media = produtos.filter { it.emPromocao }.map { it.preco }.average()
-        val maisCaro = produtos.filter { it.emPromocao }.maxByOrNull { it.preco }
 
-        Text("Valor Total: R$%.2f".format(total), fontWeight = FontWeight.Bold)
-        Text("Valor da Média: R$%.2f".format(media))
-        Text("Produto mais caro: ${maisCaro?.nome}, ${maisCaro?.preco}")
-    }
-}
-```
 3) MainActivity.kt
 ```kotlin
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    val produtos = listOf(
-        Produto("Arroz", 8.0, false),
-        Produto("Feijão", 10.5, true),
-        Produto("Café", 15.1, true),
-        Produto("Leite", 9.99, true),
-        Produto("Azeite", 89.99, false),
-        Produto("Queijo", 12.87, false),
-        Produto("Batata Escovada", 5.99, true)
-    )
-
-    ListaProdutos(produtos)
-}
+val produtos = listOf(
+    Produto("Arroz", 8.0, false),
+    Produto("Feijão", 10.5, true),
+    Produto("Café", 15.1, true),
+    Produto("Leite", 9.99, true),
+    Produto("Azeite", 89.99, false),
+    Produto("Queijo", 12.87, false),
+    Produto("Batata Escovada", 5.99, true)
+)
+ListaProdutos(produtos)
 ```
 
 # Aula 05/06
@@ -285,3 +256,10 @@ val objetoFinal = gson.fromJson(testeJsonProduto, Produto::class.java)
 ```kotlin
 Text("${ com.example.test.views.objetoFinal.nome } - ${ com.example.test.views.objetoFinal.preco } - ${ com.example.test.views.objetoFinal.emPromocao }")
 ```
+
+## Mao na massa
+1) services -> produtoService.kt
+2) views -> ListaAPIprodutos.kt
+3) atualizar Greetings na MainActivity
+
+- Caminho: API -> JSON -> SERVICE (<->MODEL) -> VIEWS -> MainActivity
