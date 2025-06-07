@@ -291,3 +291,8 @@ dependencies {
 
 2) Criar apiClasses.kt (no models)
    - Precisa ter SaleGET e SalePOST, para poder trazer as informações de forma correta (no GET)
+   - os modelos (data class) criados aqui são necessários para ler o json (precisa bater certinho)
+   - fiz dois modelos pq Sale é uma tabela associativa (puxa dados de outras tabelas)
+
+3) Criar ApiService (no services)
+   - Aqui que vai usar o Ktor (HttpClient)
