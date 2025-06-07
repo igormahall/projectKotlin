@@ -267,7 +267,7 @@ Text("${ com.example.test.views.objetoFinal.nome } - ${ com.example.test.views.o
 
 # Aula 06/06
 Habilitando para receber API do Django
-- Vai no build.gradle.kts(module:app)
+1) Vai no build.gradle.kts(module:app)
 ```bash
 plugins {
     kotlin("plugin.serialization") version "1.9.10"
@@ -288,3 +288,6 @@ dependencies {
 }
 ```
 - Depois precisa: Rebuild (sync)
+
+2) Criar apiClasses.kt (no models)
+   - Precisa ter SaleGET e SalePOST, para poder trazer as informações de forma correta (no GET)
