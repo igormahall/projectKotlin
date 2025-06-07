@@ -266,3 +266,25 @@ Text("${ com.example.test.views.objetoFinal.nome } - ${ com.example.test.views.o
 ---
 
 # Aula 06/06
+Habilitando para receber API do Django
+- Vai no build.gradle.kts(module:app)
+```bash
+plugins {
+    kotlin("plugin.serialization") version "1.9.10"
+}
+dependencies {
+    implementation("io.ktor:ktor-client-core:3.0.0")
+    implementation("io.ktor:ktor-client-android:3.0.0")
+    implementation("io.ktor:ktor-client-logging:3.0.0")
+    implementation("io.ktor:ktor-client-content-negotiation:3.0.0")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:3.0.0")
+    implementation("org.slf4j:slf4j-android:1.7.36")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    implementation("androidx.activity:activity-compose:1.7.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation("androidx.compose.foundation:foundation:1.5.0")
+}
+```
+- Depois precisa: Rebuild (sync)
