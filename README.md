@@ -306,3 +306,4 @@ dependencies {
    - Criando com 4 páginas iguais no momento...depois iremos atualizar
 
 6) Atualizar MainAcitivity.kt
+- Tá dando erro ao acessar o localhost (solucao: mudar endpoint para https)
