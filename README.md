@@ -303,3 +303,6 @@ dependencies {
 
 5) Criar SwipePager.kt (no views)
    - Usando Swipe, para exibir as views rolando a tela para o lado
+   - Criando com 4 páginas iguais no momento...depois iremos atualizar
+
+6) Atualizar MainAcitivity.kt
