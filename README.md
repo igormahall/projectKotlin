@@ -296,3 +296,7 @@ dependencies {
 
 3) Criar ApiService (no services)
    - Aqui que vai usar o Ktor (HttpClient)
+
+4) Criar apiClient.ky (no views)
+   - A primeira funçao é pro cliente individual
+   - A segunda função "abraça" todos os clientes (usando uma lazycolumn)
