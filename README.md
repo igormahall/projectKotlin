@@ -297,6 +297,9 @@ dependencies {
 3) Criar ApiService (no services)
    - Aqui que vai usar o Ktor (HttpClient)
 
-4) Criar apiClient.ky (no views)
+4) Criar apiClientView.kt (no views)
    - A primeira funçao é pro cliente individual
    - A segunda função "abraça" todos os clientes (usando uma lazycolumn)
+
+5) Criar SwipePager.kt (no views)
+   - Usando Swipe, para exibir as views rolando a tela para o lado
